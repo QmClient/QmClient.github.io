@@ -1,4 +1,4 @@
-# QmClient 官网 (wxj881027.github.io)
+# QmClient 官网 (QmClient.icu)
 
 栖梦 QmClient 的官方站点:更新日志 · 教程 · 功能介绍。基于 VitePress + GitHub Pages 自动部署。
 
@@ -7,7 +7,7 @@
 1. 写更新日志草稿:`docs/changelog/2026-08-01.md`(标题 `X月X日更新`,正文 `### FEAT:` / `### FIX:` 分节)
 2. `git add` + `git commit`
 3. `git push` → **pre-push 钩子自动调用 deepseek-v4-flash 润色** → 生成润色提交 → 推送
-4. GitHub Actions 自动构建部署,几分钟后访问 <https://wxj881027.github.io/> 生效
+4. GitHub Actions 自动构建部署,几分钟后访问 <https://QmClient.icu/> 生效
 
 跳过润色(比如 API 挂了):`git push --no-verify`
 

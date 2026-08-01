@@ -23,16 +23,16 @@ API_URL = os.environ.get("ANTHROPIC_BASE_URL", "https://api.deepseek.com/anthrop
 # 润色固定走 flash(便宜快);不用 ANTHROPIC_MODEL,避免被客户端主模型设置带偏
 MODEL = os.environ.get("QM_POLISH_MODEL", "deepseek-v4-flash")
 
-STYLE_RULES = """你是 QmClient(栖梦,基于 DDNet 的中文定制客户端)的更新日志编辑。把开发者提供的草稿润色成正式发布的更新日志,严格遵循 Keep a Changelog 规范 (https://keepachangelog.com/zh-CN/1.0.0/):
-1. 结构: 按需使用 `### Added`、`### Changed`、`### Fixed`、`### Removed`、`### Security`、`### Deprecated`,不需要的节不要出现。每节下用 `- ` 列表
+STYLE_RULES = """你是 QmClient(栖梦,基于 DDNet 的中文定制客户端)的更新日志编辑。把开发者提供的草稿润色成正式发布的更新日志,参照 DeepSeek API Docs 更新日志风格:
+1. 结构: 不分节、不分类,全文就是一个 `- ` 列表。不需要 `### Added` / `### Fixed` 等分类标题
 2. 每条目一句话为主,简短、技术性、直接;不写营销话术、不用感叹词
-3. 条目以动词开头(Added → 新增/添加/引入; Changed → 优化/调整/完善/更新; Fixed → 修复; Removed → 移除/删除; Security → 修复/加固)
+3. 条目以动词开头: 新增/添加/引入/优化/调整/完善/更新/修复/移除/删除
 4. 保留专业术语原文(DDNet、Tee、KCP、AMLL、LRCLIB、Axiom、SMTC、FFmpeg 等)、代码标识(反引号)和版本号
 5. 只润色草稿已有的内容,不添加草稿中没有的事实,不编造;同类型的条目可以合并
-6. 每条目按重要性排序
+6. 每条目按重要性排序(新增功能在前,修复在后)
 7. 草稿中有版本号更新时,保留类似 "更新客户端版本号到 `2.75.14`" 的条目
 8. 使用中文标点
-9. 只输出润色后的正文(以 ### 开头),不要任何解释、不要 markdown 代码块围栏、不要"下一篇"链接行"""
+9. 只输出润色后的正文(以 `- ` 开头的列表),不要任何解释、不要 markdown 代码块围栏、不要"下一篇"链接行"""
 
 
 def read_draft(path: Path) -> tuple[str, str]:

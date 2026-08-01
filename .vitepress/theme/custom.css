@@ -381,20 +381,6 @@ body {
 }
 
 /* ============================================================
-   Keep a Changelog 语义色
-   ============================================================ */
-
-.vp-doc h3[id*="added"]   { color: #00a400; }
-.vp-doc h3[id*="changed"] { color: var(--ds-primary); }
-.vp-doc h3[id*="fixed"]   { color: #fa383e; }
-.vp-doc h3[id*="removed"] { color: #a64dff; }
-
-.dark .vp-doc h3[id*="added"]   { color: #48c248; }
-.dark .vp-doc h3[id*="changed"] { color: var(--ds-primary); }
-.dark .vp-doc h3[id*="fixed"]   { color: #ff5c62; }
-.dark .vp-doc h3[id*="removed"] { color: #b978ff; }
-
-/* ============================================================
    搜索框
    ============================================================ */
 

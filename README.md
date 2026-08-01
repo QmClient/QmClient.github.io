@@ -4,7 +4,7 @@
 
 ## 日常发布流程
 
-1. 写更新日志草稿:`docs/changelog/2026-08-01.md`(标题 `X月X日更新`,正文 `### FEAT:` / `### FIX:` 分节)
+1. 写更新日志草稿:`docs/changelog/YYYY-MM-DD.md`(标题 `X月X日更新`,正文按 Keep a Changelog 规范: `### Added` / `### Changed` / `### Fixed` / `### Removed` / `### Security` / `### Deprecated` 分节)
 2. `git add` + `git commit`
 3. `git push` → **pre-push 钩子自动调用 deepseek-v4-flash 润色** → 生成润色提交 → 推送
 4. GitHub Actions 自动构建部署,几分钟后访问 <https://qmclient.github.io/> 生效

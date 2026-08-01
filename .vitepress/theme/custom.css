@@ -481,26 +481,46 @@ body {
 }
 
 /* ============================================================
-   FEAT / FIX 语义色
+   Added / Fixed / Changed / Removed 语义色 (Keep a Changelog)
    ============================================================ */
 
-.vp-doc h3[id*="feat"],
-.vp-doc h3[id*="FEAT"] {
+.vp-doc h3[id*="added"],
+.vp-doc h3[id*="Added"] {
   color: #059669;
 }
-.vp-doc h3[id*="fix"],
-.vp-doc h3[id*="FIX"] {
+.vp-doc h3[id*="fixed"],
+.vp-doc h3[id*="Fixed"] {
   color: #DC2626;
 }
+.vp-doc h3[id*="changed"],
+.vp-doc h3[id*="Changed"] {
+  color: #2563EB;
+}
+.vp-doc h3[id*="removed"],
+.vp-doc h3[id*="Removed"] {
+  color: #9333EA;
+}
+.vp-doc h3[id*="security"],
+.vp-doc h3[id*="Security"] {
+  color: #D97706;
+}
+.vp-doc h3[id*="deprecated"],
+.vp-doc h3[id*="Deprecated"] {
+  color: #6B7280;
+}
 
-.dark .vp-doc h3[id*="feat"],
-.dark .vp-doc h3[id*="FEAT"] {
-  color: #34D399;
-}
-.dark .vp-doc h3[id*="fix"],
-.dark .vp-doc h3[id*="FIX"] {
-  color: #F87171;
-}
+.dark .vp-doc h3[id*="added"],
+.dark .vp-doc h3[id*="Added"] { color: #34D399; }
+.dark .vp-doc h3[id*="fixed"],
+.dark .vp-doc h3[id*="Fixed"] { color: #F87171; }
+.dark .vp-doc h3[id*="changed"],
+.dark .vp-doc h3[id*="Changed"] { color: #60A5FA; }
+.dark .vp-doc h3[id*="removed"],
+.dark .vp-doc h3[id*="Removed"] { color: #C084FC; }
+.dark .vp-doc h3[id*="security"],
+.dark .vp-doc h3[id*="Security"] { color: #FBBF24; }
+.dark .vp-doc h3[id*="deprecated"],
+.dark .vp-doc h3[id*="Deprecated"] { color: #9CA3AF; }
 
 /* ============================================================
    响应式

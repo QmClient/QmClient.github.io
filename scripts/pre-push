@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+# QmClient 网站 pre-push 钩子:push 前自动调用 deepseek-v4-flash 润色未推送的更新日志
+# 由 scripts/install-hooks.py 安装到 .git/hooks/pre-push
+# 跳过润色: git push --no-verify
+set -euo pipefail
+
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+BRANCH="$(git branch --show-current)"
+
+# 尚未推送过(无远端分支)时直接放行
+UPSTREAM="$(git rev-parse --verify --quiet "refs/remotes/origin/$BRANCH")" || {
+  echo "pre-push: 尚无远端 $BRANCH,跳过润色"
+  exit 0
+}
+
+# 取未推送提交中改动的 changelog 文件(排除列表页)
+FILES="$(git diff --name-only "$UPSTREAM"...HEAD -- docs/changelog/ | grep -v '^docs/changelog/index\.md$' || true)"
+if [ -z "$FILES" ]; then
+  exit 0
+fi
+
+echo "pre-push: 检测到未推送的更新日志,调用 deepseek-v4-flash 润色..."
+for f in $FILES; do
+  echo "  → $f"
+  python "$REPO_ROOT/scripts/polish.py" --file "$REPO_ROOT/$f"
+done
+
+git add docs/changelog/
+if git diff --cached --quiet; then
+  echo "pre-push: 润色无改动,跳过提交"
+else
+  git commit -m "chore: AI 润色更新日志" --quiet
+  echo "pre-push: 已生成润色提交"
+fi
+echo "pre-push: 完成,继续推送"

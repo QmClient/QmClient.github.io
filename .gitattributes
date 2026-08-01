@@ -1,0 +1,4 @@
+* text=auto
+scripts/pre-push text eol=lf
+scripts/*.py text eol=lf
+.github/workflows/*.yml text eol=lf
